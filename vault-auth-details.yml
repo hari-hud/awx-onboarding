@@ -1,0 +1,19 @@
+---
+- name: Get vault details from AWX
+  hosts: all
+  gather_facts: false
+  tasks:
+    - debug:
+        var: VAULT_ADDR
+        
+    - debug:
+        var: VAULT_NAMESPACE
+        
+    - debug:
+        var: VAULT_ROLE_ID
+        
+    - debug:
+        var: VAULT_SECRET_ID
+        
+    - debug:
+        var: VAULT_PATH
