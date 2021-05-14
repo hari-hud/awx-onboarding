@@ -1,4 +1,6 @@
-# How to create custom credential in AWX and use them in playbook. In this example we will create HashiCorp Vault Credential and use in our automation.
+# How to create custom credential in AWX and use them in playbook. 
+
+### In this example we will create HashiCorp Vault Credential and use in our automation.
 
 1. Create new credential type in AWX. (This option is visible in AWX only using administrative account)
    
