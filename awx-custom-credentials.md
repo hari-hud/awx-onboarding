@@ -46,7 +46,7 @@
           VAULT_SECRET_ID: '{{ vault_secret_id }}'
      ```
 
-2. Create Credential object using custom credenntial type you created.
+2. Create Credential object using custom credential type you created.
 
 3. Create a job template and assign credential you created in #2. Injector configuration varibales will be available to your playbook as extra args.
    I am using playbook like below:
