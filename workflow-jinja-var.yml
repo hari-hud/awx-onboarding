@@ -3,6 +3,12 @@
   gather_facts: False
   tasks:
     - debug:
+        var: ansible_distribution_release
+        
+    - debug:
+        var: ansible_distribution_major_version
+        
+    - debug:
         var: docker_versioned_pkg
         
     - debug:
