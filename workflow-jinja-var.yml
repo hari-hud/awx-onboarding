@@ -1,21 +1,36 @@
 ---
 - hosts: all
-  gather_facts: False
+  gather_facts: true
   tasks:
     - debug:
         var: ansible_distribution_release
         
     - debug:
+        msg: ansible_distribution_release
+        
+    - debug:
         var: ansible_distribution_major_version
+        
+    - debug:
+        msg: ansible_distribution_major_version
         
     - debug:
         var: docker_versioned_pkg
         
     - debug:
+        msg: docker_versioned_pkg
+        
+    - debug:
         var: docker_version
         
     - debug:
+        msg: docker_version
+        
+    - debug:
         var: docker_versioned_pkg[docker_version | string]
+        
+    - debug:
+        msg: docker_versioned_pkg[docker_version | string]
         
 #     - name: Ensure old versions of Docker are not installed. | Debian
 #       apt:
