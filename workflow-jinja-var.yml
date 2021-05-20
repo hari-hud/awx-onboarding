@@ -3,4 +3,17 @@
   gather_facts: False
   tasks:
     - debug:
-        var: myvar
+        var: docker_versioned_pkg
+        
+    - debug:
+        var: docker_version
+        
+    - debug:
+        var: docker_versioned_pkg[docker_version | string]
+        
+#     - name: Ensure old versions of Docker are not installed. | Debian
+#       apt:
+#        name: '{{ docker_remove_packages_apt }}'
+#        state: absent
+#   when:
+#     - (docker_versioned_pkg[docker_version | string] is search('docker-ce'))
