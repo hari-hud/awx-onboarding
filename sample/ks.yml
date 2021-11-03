@@ -17,5 +17,5 @@
       when: kubespray_branch is defined
 
     - debug: 
-        msg: "ks-main"
+        msg: "ks-1.18"
         
