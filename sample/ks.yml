@@ -3,8 +3,11 @@
   hosts: localhost
   gather_facts: false
   vars:
-    kubespray_repo_local_path: "../submodules/nvdc/opensource/ks/"
+    kubespray_repo_local_path: "../submodules/nvdc/opensource/ks"
   tasks:
+    - name: print current working dir and list of files and dir in same dir
+      shell: "pwd && ls"
+      
     - block:
         - name: Install Git Client
           yum:
@@ -17,3 +20,4 @@
 
     - debug: 
         msg: "ks-main"
+        
