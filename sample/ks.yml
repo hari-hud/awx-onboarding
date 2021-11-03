@@ -1,17 +1,19 @@
-- name: Checkout local Kubesray branch
+---
+- name: Checkout Local Kubesray Branch
   hosts: localhost
   gather_facts: false
   vars:
-    ks_version: "main"
-    ks_repo_local_path: "../submodules/nvdc/opensource/ks/"
+    kubespray_repo_local_path: "../submodules/nvdc/opensource/ks/"
   tasks:
-    - name: Install git
-      yum:
-        name: git
-        state: present
+    block:
+      - name: Install Git Client
+        yum:
+          name: git
+          state: present
 
-    - name: Checkout ks {{ ks_version }}
-      shell: "cd {{ ks_repo_local_path }} && git checkout {{ ks_version }}"
+      - name: Checkout kubespray branch to {{ kubespray_branch }}
+        shell: "cd {{ kubespray_repo_local_path }} && git checkout {{ kubespray_branch }}"
+    when: kubespray_branch is defined
 
-    - debug: Print sample/ks.yml content
+    - name: Print sample/ks.yml content
       shell: "cat sample/ks.yml"
