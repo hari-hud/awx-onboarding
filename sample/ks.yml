@@ -5,15 +5,19 @@
   vars:
     kubespray_repo_local_path: "../submodules/nvdc/opensource/ks/"
   tasks:
-    block:
-      - name: Install Git Client
-        yum:
-          name: git
-          state: present
+    - block:
+        - name: Install Git Client
+          yum:
+            name: git
+            state: present
 
-      - name: Checkout kubespray branch to {{ kubespray_branch }}
-        shell: "cd {{ kubespray_repo_local_path }} && git checkout {{ kubespray_branch }}"
-    when: kubespray_branch is defined
+        - name: Checkout kubespray branch to {{ kubespray_branch }}
+          shell: "cd {{ kubespray_repo_local_path }} && git checkout {{ kubespray_branch }}"
+      when: kubespray_branch is defined
 
     - name: Print sample/ks.yml content
       shell: "cat sample/ks.yml"
+
+    - debug: 
+        msg: "ks-1.18"
+        
