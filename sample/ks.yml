@@ -15,9 +15,6 @@
           shell: "cd {{ kubespray_repo_local_path }} && git checkout {{ kubespray_branch }}"
       when: kubespray_branch is defined
 
-    - name: Print sample/ks.yml content
-      shell: "cat sample/ks.yml"
-
     - debug: 
         msg: "ks-1.19"
         
