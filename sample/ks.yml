@@ -2,12 +2,7 @@
 - name: Checkout Local Kubesray Branch
   hosts: localhost
   gather_facts: false
-  vars:
-    kubespray_repo_local_path: "../submodules/nvdc/opensource/ks"
   tasks:
-    - name: print current working dir and list of files and dir in same dir
-      shell: "pwd && ls"
-      
     - block:
         - name: Install Git Client
           yum:
@@ -15,7 +10,10 @@
             state: present
 
         - name: Checkout kubespray branch to {{ kubespray_branch }}
-          shell: "cd {{ kubespray_repo_local_path }} && git checkout {{ kubespray_branch }}"
+          shell: "git checkout {{ kubespray_branch }}"
+
+        - name: Git branch status
+          shell: "git branch"
       when: kubespray_branch is defined
 
     - debug: 
