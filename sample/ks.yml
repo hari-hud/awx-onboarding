@@ -1,7 +1,17 @@
----
-- name: Print KS version
+- name: Checkout local Kubesray branch
   hosts: localhost
   gather_facts: false
+  vars:
+    ks_version: "main"
+    ks_repo_local_path: "../submodules/nvdc/opensource/ks/"
   tasks:
-    - debug:
-        msg: "KS-main"
+    - name: Install git
+      yum:
+        name: git
+        state: present
+
+    - name: Checkout ks {{ ks_version }}
+      shell: "cd {{ ks_repo_local_path }} && git checkout {{ ks_version }}"
+
+    - debug: Print sample/ks.yml content
+      shell: "cat sample/ks.yml"
