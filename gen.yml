@@ -6,7 +6,6 @@
     docker_repository: "nvidia"
     nexus_docker_repo: "gcr.io"
   tasks:
-    - debug: var: awx_environment
 
     - name: way1 - 1
       debug:
