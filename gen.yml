@@ -6,19 +6,20 @@
     docker_repository: ""
     nexus_docker_repo: ""
   tasks:
+
     - name: way1 - 1
-      message: "docker pull {{ nexus_docker_repo }}/nginx:1.20.1"
+      msg: "docker pull {{ nexus_docker_repo }}/nginx:1.20.1"
     - name: way1 - 2
-      message: "docker pull {{ nexus_docker_repo }}/python:3.9"
+      msg: "docker pull {{ nexus_docker_repo }}/python:3.9"
 
     - name: way2 - 1 
-      message: "docker pull {{ bcm_artifactory_docker_url }}/{{ bcm_artifactory_docker_repo }}/nginx:1.20.1"
+      msg: "docker pull {{ bcm_artifactory_docker_url }}/{{ bcm_artifactory_docker_repo }}/nginx:1.20.1"
     - name: way2 - 2
-      message: "docker pull {{ bcm_artifactory_docker_url }}/{{ bcm_artifactory_docker_repo }}/python:3.9"
+      msg: "docker pull {{ bcm_artifactory_docker_url }}/{{ bcm_artifactory_docker_repo }}/python:3.9"
     
     - name: way3 - 1
-      message: "docker pull {{ registry_address }}/{{ docker_repository }}/nginx:1.20.1"
+      msg: "docker pull {{ registry_address }}/{{ docker_repository }}/nginx:1.20.1"
     - name: way3 - 2
-      message: "docker pull {{ registry_address }}/{{ docker_repository }}/python:3.9"
+      msg: "docker pull {{ registry_address }}/{{ docker_repository }}/python:3.9"
     
 
