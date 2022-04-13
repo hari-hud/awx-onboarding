@@ -2,9 +2,9 @@
   hosts: all
   gather_facts: false
   vars:
-    registry_address: ""
-    docker_repository: ""
-    nexus_docker_repo: ""
+    registry_address: "quay.io"
+    docker_repository: "nvidia"
+    nexus_docker_repo: "gcr.io"
   tasks:
 
     - name: way1 - 1
@@ -29,3 +29,6 @@
         msg: "docker pull {{ registry_address }}/{{ docker_repository }}/python:3.9"
     
 
+# docker_repository: '{{ bcm_artifactory_docker_repo }}'
+# nexus_docker_repo: '{{ bcm_artifactory_url }}/{{ bcm_artifactory_docker_repo }}'
+# registry_address: '{{ bcm_artifactory_url }}'
